@@ -37,10 +37,16 @@ public class Tokenizer {
     private void tokenize (){
         String tokenizedProgram = program;
         tokenizedProgram = tokenizedProgram.replace("\n","");
-        tokenizedProgram = tokenizedProgram.replace(",","");
+//        tokenizedProgram = tokenizedProgram.replace(",","");
 //        System.out.println(tokenizedProgram);
         for (String s : literals){
-            tokenizedProgram = tokenizedProgram.replace(s,"_"+s+"_");
+            if (s.equals(","))
+            {
+                tokenizedProgram = tokenizedProgram.replace(s, "__");
+            }
+            else {
+                tokenizedProgram = tokenizedProgram.replace(s, "_" + s + "_");
+            }
 //            System.out.println(tokenizedProgram);
         }
         tokenizedProgram = tokenizedProgram.replaceAll("__","_");
