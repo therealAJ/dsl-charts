@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/CreateChart.iml" filepath="$PROJECT_DIR$/CreateChart.iml" />
+      <module fileurl="file://$PROJECT_DIR$/dsl-charts.iml" filepath="$PROJECT_DIR$/dsl-charts.iml" />
     </modules>
   </component>
 </project>

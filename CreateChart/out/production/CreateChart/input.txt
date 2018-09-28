@@ -1,9 +1,0 @@
-GRAPH:Tester
-TYPE:Bar
-ITEMS:
-ITEM:ItemOne, 5, red
-ITEM:ItemTwo, 6, blue
-ITEM:ItemThree, 7, orange
-LABELS:
-X, "Items"
-Y, "Values"
