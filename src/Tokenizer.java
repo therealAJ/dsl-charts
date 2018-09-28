@@ -7,8 +7,6 @@ import java.util.Arrays;
 import java.util.List;
 
 public class Tokenizer {
-
-
     private static String program = "";
     private static List<String> literals;
     private String[] tokens;
@@ -31,14 +29,11 @@ public class Tokenizer {
             throw new Exception(errorMessage);
         }
         tokenize();
-//        System.out.println(program);
     }
 
     private void tokenize (){
         String tokenizedProgram = program;
         tokenizedProgram = tokenizedProgram.replace("\n","");
-//        tokenizedProgram = tokenizedProgram.replace(",","");
-//        System.out.println(tokenizedProgram);
         for (String s : literals){
             if (s.equals(","))
             {
@@ -47,10 +42,8 @@ public class Tokenizer {
             else {
                 tokenizedProgram = tokenizedProgram.replace(s, "_" + s + "_");
             }
-//            System.out.println(tokenizedProgram);
         }
         tokenizedProgram = tokenizedProgram.replaceAll("__","_");
-//        System.out.println(tokenizedProgram);
         String [] temparray=tokenizedProgram.split("_");
         tokens = new String[temparray.length-1];
         System.arraycopy(temparray,1,tokens,0,temparray.length-1);
@@ -64,7 +57,7 @@ public class Tokenizer {
     }
 
     private String checkNext(){
-        String token="";
+        String token;
         if (currentToken<tokens.length){
             token = tokens[currentToken];
         }
@@ -74,7 +67,7 @@ public class Tokenizer {
     }
 
     public String getNext(){
-        String token="";
+        String token;
         if (currentToken<tokens.length){
             token = tokens[currentToken];
             currentToken++;
@@ -84,25 +77,22 @@ public class Tokenizer {
         return token;
     }
 
-
     public boolean checkToken(String regexp){
         String s = checkNext();
-        System.out.println("comparing: "+s+"  to  "+regexp);
+        System.out.println("comparing: "+ s +"  to  "+ regexp);
         return (s.matches(regexp));
     }
-
 
     public String getAndCheckNext(String regexp){
         String s = getNext();
         if (!s.matches(regexp)) System.exit(0);
-        System.out.println("matched: "+s+"  to  "+regexp);
+        System.out.println("matched: "+ s +"  to  "+ regexp);
         return s;
     }
 
     public boolean moreTokens(){
         return currentToken<tokens.length;
     }
-
 
     public static Tokenizer getTokenizer(){
         return theTokenizer;
