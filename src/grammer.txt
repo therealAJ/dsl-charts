@@ -1,0 +1,26 @@
+Graph:
+    Title: My Bar Chart
+    Type: Bar
+    Items:
+        [Name, Value, Color, Border]
+        [Apples, 100, Blue, Black]
+    Labels:
+        XName: "Types of Fruit"
+        YName: "Number of Fruit"
+END
+
+PROGRAM ::= GRAPH*
+GRAPH   ::= "Graph:" TITLE TYPE ITEMS LABELS END
+TITLE   ::= "Title: " STRING
+TYPE    ::= "Type: " CHART-TYPE
+CHART-TYPE ::= "Bar" | "Pie"
+ITEMS   ::= "[" ITEM* "]"
+ITEM    ::= NAME SEP VALUE SEP COLOR? SEP BORDER?
+NAME    ::= [*]
+VALUE   ::= [0-9]
+COLOR   ::= "rgba(" [0-255] SEP [0-255] SEP [0-255] SEP [0-1] ")"
+BORDER   ::= "rgba(" [0-255] SEP [0-255] SEP [0-255] SEP [0-1] ")"
+LABELS  ::= LABEL LABEL
+LABEL   ::= "XName" | "YName" ":" STRING
+END     ::= "END"
+SEP     ::= ,
