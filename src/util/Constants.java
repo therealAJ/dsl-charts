@@ -12,4 +12,8 @@ public class Constants {
             "  <body>\n";
     public static String END_HTML = "</body>\n" +
             "</html>\n";
+
+    public enum BAR_CHART_PROPERTIES  {
+        NAME, VALUE, COLOR
+    }
 }

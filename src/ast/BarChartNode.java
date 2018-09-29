@@ -1,5 +1,6 @@
 package ast;
 
+import util.Constants;
 import util.Tokenizer;
 
 import java.util.ArrayList;
@@ -13,6 +14,7 @@ public class BarChartNode extends ChartNode {
     String xLabel;
     String yLabel;
     int count;
+
     public BarChartNode(int count)
     {
         valueNodes = new ArrayList<>();
@@ -40,6 +42,18 @@ public class BarChartNode extends ChartNode {
     @Override
     public void evaluate() {
         String snippet = "var ctx" + count + " = document.getElementById(\"chart" + count +"\");\n" +
-                "var myChart"  + count + " = new Chart(ctx"  + count + ", {\n"; //TODO
+                "var myChart"  + count + " = new Chart(ctx"  + count + ", {\n" +
+                "type: 'bar',\n" +
+                "data: {\n" +
+                "labels: [";
+        writer.println(snippet);
+        // labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"], 
+        for(int i = 0; i < valueNodes.size(); i++) {
+            valueNodes.get(i).evaluate(Constants.BAR_CHART_PROPERTIES.NAME);
+            if(i != valueNodes.size()-1) {
+                writer.println(",");
+            }
+        }
+
     }
 }

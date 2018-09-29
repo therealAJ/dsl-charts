@@ -1,6 +1,10 @@
 package ast;
 
+import util.Constants;
 import util.Tokenizer;
+
+import java.io.FileNotFoundException;
+import java.io.UnsupportedEncodingException;
 
 /**
  * Created by jason on 2018-09-28.
@@ -18,7 +22,14 @@ public class BarChartValueNode extends Node {
     }
 
     @Override
-    public void evaluate() {
+    public void evaluate() throws FileNotFoundException, UnsupportedEncodingException {
+        return;
+    }
 
+    public void evaluate(Constants.BAR_CHART_PROPERTIES type) {
+        switch (type) {
+            case NAME:
+                writer.println("\""+ name + "\"");
+        }
     }
 }
