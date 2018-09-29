@@ -11,15 +11,20 @@ import java.io.UnsupportedEncodingException;
 public class GraphNode extends Node {
     ChartNode chartNode;
     String title;
+    int count;
+
+    public GraphNode(int count) {
+        this.count = count;
+    }
+
     @Override
     public void parse() {
-        Tokenizer.getTokenizer().getAndCheckNext("GRAPH:");
         title = Tokenizer.getTokenizer().getNext();
         Tokenizer.getTokenizer().getAndCheckNext("TYPE:");
         String chartType = Tokenizer.getTokenizer().getNext();
         if (chartType.equals("Bar"))
         {
-            chartNode = new BarChartNode();
+            chartNode = new BarChartNode(count);
             chartNode.parse();
         }
         else if (chartType.equals("Pie"))
@@ -29,8 +34,7 @@ public class GraphNode extends Node {
     }
 
     @Override
-    public String evaluate() throws FileNotFoundException, UnsupportedEncodingException {
+    public void evaluate() throws FileNotFoundException, UnsupportedEncodingException {
         chartNode.evaluate();
-        return "";
     }
 }

@@ -18,7 +18,7 @@ public class BarChartValueNode extends Node {
     }
 
     @Override
-    public String evaluate() {
-        return null;
+    public void evaluate() {
+
     }
 }

@@ -12,9 +12,11 @@ public class BarChartNode extends ChartNode {
     List<BarChartValueNode> valueNodes;
     String xLabel;
     String yLabel;
-    public BarChartNode()
+    int count;
+    public BarChartNode(int count)
     {
         valueNodes = new ArrayList<>();
+        this.count = count;
     }
 
     @Override
@@ -36,7 +38,8 @@ public class BarChartNode extends ChartNode {
     }
 
     @Override
-    public String evaluate() {
-        return null;
+    public void evaluate() {
+        String snippet = "var ctx" + count + " = document.getElementById(\"chart" + count +"\");\n" +
+                "var myChart"  + count + " = new Chart(ctx"  + count + ", {\n"; //TODO
     }
 }

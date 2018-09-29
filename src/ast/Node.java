@@ -9,6 +9,6 @@ import java.io.UnsupportedEncodingException;
  */
 public abstract class Node {
     public abstract void parse();
-    public abstract String evaluate() throws FileNotFoundException, UnsupportedEncodingException;
+    public abstract void evaluate() throws FileNotFoundException, UnsupportedEncodingException;
     static protected PrintWriter writer;
 }
