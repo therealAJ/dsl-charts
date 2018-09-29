@@ -1,7 +1,14 @@
+package ast;
+
+import util.Tokenizer;
+
+import java.io.FileNotFoundException;
+import java.io.UnsupportedEncodingException;
+
 /**
  * Created by jason on 2018-09-28.
  */
-public class GraphNode implements Node {
+public class GraphNode extends Node {
     ChartNode chartNode;
     String title;
     @Override
@@ -22,7 +29,8 @@ public class GraphNode implements Node {
     }
 
     @Override
-    public String evaluate() {
-        return null;
+    public String evaluate() throws FileNotFoundException, UnsupportedEncodingException {
+        chartNode.evaluate();
+        return "";
     }
 }

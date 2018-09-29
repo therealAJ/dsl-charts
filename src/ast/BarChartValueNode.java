@@ -1,7 +1,11 @@
+package ast;
+
+import util.Tokenizer;
+
 /**
  * Created by jason on 2018-09-28.
  */
-public class BarChartValueNode implements Node {
+public class BarChartValueNode extends Node {
     String name;
     int count;
     String colour;

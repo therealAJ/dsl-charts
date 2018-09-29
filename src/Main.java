@@ -1,3 +1,6 @@
+import ast.GraphNode;
+import util.Tokenizer;
+
 import java.util.Arrays;
 import java.util.List;
 
@@ -8,5 +11,6 @@ public class Main {
         Tokenizer.makeTokenizer("input.txt",literals);
         GraphNode graphNode = new GraphNode();
         graphNode.parse();
+        graphNode.evaluate();
     }
 }
