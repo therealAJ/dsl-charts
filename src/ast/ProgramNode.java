@@ -1,6 +1,7 @@
 package ast;
 
 import util.Constants;
+import util.SnippetGenerator;
 import util.Tokenizer;
 
 import java.io.FileNotFoundException;
@@ -24,9 +25,21 @@ public class ProgramNode extends Node {
 
     @Override
     public void evaluate() {
+        int i = 1;
         for (GraphNode graph: graphs) {
+            graph.getChartNode().ID = i;
             graph.evaluate();
+            i++;
         }
+    }
+
+    public void printGraphs() {
+        for (GraphNode g: graphs) {
+            SnippetGenerator sg = new SnippetGenerator(g.getChartNode());
+            System.out.println(sg.printSnippet());
+
+        }
+
     }
     /*
     I think printing needs to separated from evaluating.. It becomes too messy to try and do it all at once. I preserved

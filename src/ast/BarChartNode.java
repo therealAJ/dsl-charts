@@ -14,7 +14,7 @@ public class BarChartNode extends ChartNode {
 
     @Override
     public void addData() {
-        System.out.println("BarChartNode addData called");
+//        System.out.println("BarChartNode addData called");
         data.datasets.label = xLabel;
         for (ChartValueNode node: chartItems) {
             data.labels.add(node.name);
@@ -28,7 +28,7 @@ public class BarChartNode extends ChartNode {
 
     @Override
     public void addOptions() {
-        System.out.println("BarChartNode addOptions called");
+//        System.out.println("BarChartNode addOptions called");
     }
 
     private Boolean colourSpecified() {

@@ -18,5 +18,7 @@ public class Main {
         // iterate through and evaluate all of the graphs
         programNode.evaluate();
 
+        programNode.printGraphs();
+
     }
 }

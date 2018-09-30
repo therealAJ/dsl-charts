@@ -13,7 +13,7 @@ import java.io.UnsupportedEncodingException;
  * Created by jason on 2018-09-28.
  */
 public class GraphNode extends Node {
-    String title;
+    public String title;
     String type;
     ChartNode chartNode;
 
@@ -26,6 +26,10 @@ public class GraphNode extends Node {
 
     // default constructor
     public GraphNode() {}
+
+    public ChartNode getChartNode() {
+        return this.chartNode;
+    }
 
     @Override
     public void parse() {
@@ -45,8 +49,35 @@ public class GraphNode extends Node {
     }
 
     public void evaluate() {
-        System.out.println("GraphNode evaluate called");
+//        System.out.println("GraphNode evaluate called");
         chartNode.evaluate();
     }
+
+    //    public void printGraphs() {
+//        writer = new PrintWriter("charts.html", "UTF-8");
+//        writer.println(Constants.START_HTML);
+//
+//        for (GraphNode graph: graphs) {
+//            printHtmlCanvas();
+//            printChartJsCode();
+//        }
+//        writer.println(Constants.END_HTML);
+//        writer.close();
+//    }
+
+//    public void printHtmlCanvas() {
+//        for(int i = 0; i < graphs.size(); i++) {
+//            writer.println("<canvas id=\"chart" + i + "\" " +
+//                    "width=\"400\" height=\"400\"></canvas>");
+//        }
+//    }
+//
+//    public void printChartJsCode() throws FileNotFoundException, UnsupportedEncodingException {
+//        writer.println("<script>");
+//        for(GraphNode g : graphs) {
+//            g.evaluate();
+//        }
+//        writer.println("</script>");
+//    }
 
 }

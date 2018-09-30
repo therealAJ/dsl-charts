@@ -13,10 +13,11 @@ import java.util.List;
  * Created by jason on 2018-09-28.
  */
 public abstract class ChartNode extends Node {
-    String title;
-    String type;
-    DataObject data;
-    OptionsObject options;
+    public int ID;
+    public String title;
+    public String type;
+    public DataObject data;
+    public OptionsObject options;
     List<ChartValueNode> chartItems;
     String xLabel;
     String yLabel;
@@ -63,7 +64,7 @@ public abstract class ChartNode extends Node {
     public void addOptions () {}
 
     public void evaluate() {
-        System.out.println("ChartNode evaluate called");
+//        System.out.println("ChartNode evaluate called");
         data = new DataObject();
         addData();
         options = new OptionsObject();
