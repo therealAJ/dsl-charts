@@ -16,4 +16,8 @@ public class Constants {
     public enum BAR_CHART_PROPERTIES  {
         NAME, VALUE, COLOR
     }
+
+    public enum CHART_TYPES {
+        BAR, PIE, LINE
+    }
 }

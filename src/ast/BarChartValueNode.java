@@ -22,8 +22,7 @@ public class BarChartValueNode extends Node {
     }
 
     @Override
-    public void evaluate() throws FileNotFoundException, UnsupportedEncodingException {
-        return;
+    public void evaluate() {
     }
 
     public void evaluate(Constants.BAR_CHART_PROPERTIES type) {

@@ -14,25 +14,36 @@ public class ProgramNode extends Node {
 
     @Override
     public void parse() {
-        int graphCount = 1;
         while (Tokenizer.getTokenizer().moreTokens()) {
             Tokenizer.getTokenizer().getAndCheckNext("GRAPH:");
-            GraphNode g = new GraphNode(graphCount);
+            GraphNode g = new GraphNode();
             g.parse();
             graphs.add(g);
-            graphCount++;
         }
     }
 
     @Override
-    public void evaluate() throws FileNotFoundException, UnsupportedEncodingException {
-        writer = new PrintWriter("charts.html", "UTF-8");
-        writer.println(Constants.START_HTML);
-        printHtmlCanvas();
-        printChartJsCode();
-        writer.println(Constants.END_HTML);
-        writer.close();
+    public void evaluate() {
+        for (GraphNode graph: graphs) {
+            graph.evaluate();
+        }
     }
+    /*
+    I think printing needs to separated from evaluating.. It becomes too messy to try and do it all at once. I preserved
+    this snippet below, but I think it should look something like this rather than containing it in evaluate:
+     */
+
+//    public void printGraphs() {
+//        writer = new PrintWriter("charts.html", "UTF-8");
+//        writer.println(Constants.START_HTML);
+//
+//        for (GraphNode graph: graphs) {
+//            printHtmlCanvas();
+//            printChartJsCode();
+//        }
+//        writer.println(Constants.END_HTML);
+//        writer.close();
+//    }
 
     public void printHtmlCanvas() {
         for(int i = 0; i < graphs.size(); i++) {
