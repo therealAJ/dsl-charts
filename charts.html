@@ -7,7 +7,13 @@
   </head>
   <body>
 
-<canvas id='Tester' width='300' height='300'></canvas>
+<div style=' 
+    max-width: 600px;
+    max-height: 600px;
+    position:relative;
+    margin:100px auto;'>
+<canvas id='Tester'></canvas>
+</div>
 <script>
 var ctx1 = document.getElementById('Tester').getContext('2d');
 var Tester = new Chart(ctx1, {
@@ -35,7 +41,13 @@ var Tester = new Chart(ctx1, {
     }
 });
 </script>
-<canvas id='PieTest' width='300' height='300'></canvas>
+<div style=' 
+    max-width: 600px;
+    max-height: 600px;
+    position:relative;
+    margin:100px auto;'>
+<canvas id='PieTest'></canvas>
+</div>
 <script>
 var ctx2 = document.getElementById('PieTest').getContext('2d');
 var PieTest = new Chart(ctx2, {

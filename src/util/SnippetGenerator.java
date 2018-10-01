@@ -35,8 +35,10 @@ public class SnippetGenerator {
     }
 
     private void appendCanvasTag() {
-        String str ="<canvas id='" + chart.title + "' width='300' height='300'></canvas>\n";
+        snippet.append(SnippetHelpers.DIV_OPEN_TAG);
+        String str ="<canvas id='" + chart.title + "'></canvas>\n";
         snippet.append(str);
+        snippet.append(SnippetHelpers.DIV_CLOSE_TAG);
     }
 
     private void appendCTXDefinition() {
