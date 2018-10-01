@@ -6,9 +6,6 @@ import util.Tokenizer;
 
 import java.util.List;
 
-/**
- * Created by jason on 2018-09-28.
- */
 public abstract class ChartNode extends Node {
     public int ID;
     public String title;
@@ -57,10 +54,8 @@ public abstract class ChartNode extends Node {
         for (ChartValueNode node: chartItems) {
             data.labels.add(node.name);
             data.datasets.data.add(node.count);
-            if (colourSpecified()) {
-                data.datasets.bgColours.add(node.colour);
-                data.datasets.borderColours.add(node.border);
-            }
+            data.datasets.bgColours.add(node.colour);
+            data.datasets.borderColours.add(node.border);
         }
     }
 
@@ -72,12 +67,4 @@ public abstract class ChartNode extends Node {
         options = new OptionsObject();
         addOptions();
     }
-
-    private Boolean colourSpecified() {
-        // TODO: provide our own colours when not defined by the user.
-        // TODO: include border colour in our specification?
-        return false;
-    }
-
-
 }

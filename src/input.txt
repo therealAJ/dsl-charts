@@ -1,9 +1,9 @@
 GRAPH:Tester
 TYPE:Bar
 ITEMS:
-ITEM:THIS,10,red
-ITEM:ISA,6,blue
-ITEM:TEST,7,orange
+ITEM:THIS,10,red,blue
+ITEM:ISA,6,blue,red
+ITEM:TEST,7,green,blue
 LABELS:
 X:Items
 Y:Values
@@ -12,9 +12,9 @@ Y:Values
 GRAPH:PieTest
 TYPE:Pie
 ITEMS:
-ITEM:ItemOne,5,red
-ITEM:ItemTwo,6,blue
-ITEM:ItemThree,7,orange
+ITEM:ItemOne,5,red,blue
+ITEM:ItemTwo,6,blue,red
+ITEM:ItemThree,7,green,blue
 LABELS:
 X:Items
 Y:Values

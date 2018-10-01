@@ -1,7 +1,6 @@
 package util;
 
-import java.util.Arrays;
-import java.util.List;
+import java.util.*;
 
 public class Constants {
 
@@ -29,4 +28,15 @@ public class Constants {
     public static final String OUTPUT_FILE_PATH = "charts.html";
 
     public static final List<String> LITERALS = Arrays.asList("GRAPH:", "TYPE:","ITEMS:","ITEM:","LABELS:","X:","Y:",",","END");
+
+    public static final Map<String, Colour> COLOURS;
+
+    static
+    {
+        Map<String, Colour> coloursMap = new HashMap<>();
+        coloursMap.put("red", new Colour(255, 0, 0));
+        coloursMap.put("green", new Colour(0, 255, 0));
+        coloursMap.put("blue", new Colour(0, 0, 255));
+        COLOURS = Collections.unmodifiableMap(coloursMap);
+    }
 }
