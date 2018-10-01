@@ -80,8 +80,4 @@ public abstract class ChartNode extends Node {
     }
 
 
-
-
-
-
 }

@@ -3,9 +3,6 @@ package ast;
 import ChartAttributes.ChartType;
 import util.Tokenizer;
 
-/**
- * Created by jason on 2018-09-28.
- */
 public class GraphNode extends Node {
     public String title;
     String type;

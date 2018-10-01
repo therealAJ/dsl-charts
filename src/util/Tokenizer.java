@@ -23,7 +23,7 @@ public class Tokenizer {
             FileReader fr = new FileReader(file);
             BufferedReader br = new BufferedReader(fr);
             String line;
-            while((line = br.readLine()) != null){
+            while ((line = br.readLine()) != null) {
                 program += line;
             }
         } catch (IOException e) {
@@ -33,70 +33,66 @@ public class Tokenizer {
         tokenize();
     }
 
-    private void tokenize (){
+    private void tokenize() {
         String tokenizedProgram = program;
-        tokenizedProgram = tokenizedProgram.replace("\n","");
-        for (String s : literals){
-            if (s.equals(","))
-            {
+        tokenizedProgram = tokenizedProgram.replace("\n", "");
+        for (String s : literals) {
+            if (s.equals(",")) {
                 tokenizedProgram = tokenizedProgram.replace(s, "__");
-            }
-            else {
+            } else {
                 tokenizedProgram = tokenizedProgram.replace(s, "_" + s + "_");
             }
         }
-        tokenizedProgram = tokenizedProgram.replaceAll("__","_");
-        String [] temparray=tokenizedProgram.split("_");
-        tokens = new String[temparray.length-1];
-        System.arraycopy(temparray,1,tokens,0,temparray.length-1);
+        tokenizedProgram = tokenizedProgram.replaceAll("__", "_");
+        String[] temparray = tokenizedProgram.split("_");
+        tokens = new String[temparray.length - 1];
+        System.arraycopy(temparray, 1, tokens, 0, temparray.length - 1);
         System.out.println(Arrays.asList(tokens));
     }
 
     public static void makeTokenizer(String filename, List<String> literals) throws Exception {
-        if (theTokenizer==null){
-            theTokenizer = new Tokenizer(filename,literals);
+        if (theTokenizer == null) {
+            theTokenizer = new Tokenizer(filename, literals);
         }
     }
 
-    private String checkNext(){
+    private String checkNext() {
         String token;
-        if (currentToken<tokens.length){
+        if (currentToken < tokens.length) {
             token = tokens[currentToken];
-        }
-        else
-            token="NO_MORE_TOKENS";
+        } else
+            token = "NO_MORE_TOKENS";
         return token;
     }
 
-    public String getNext(){
+    public String getNext() {
         String token;
-        if (currentToken<tokens.length){
+        if (currentToken < tokens.length) {
             token = tokens[currentToken];
             currentToken++;
-        }
-        else
-            token="NULLTOKEN";
+        } else
+            token = "NULLTOKEN";
         return token;
     }
 
-    public boolean checkToken(String regexp){
+    public boolean checkToken(String regexp) {
         String s = checkNext();
-        System.out.println("comparing: "+ s +"  to  "+ regexp);
+        System.out.println("comparing: " + s + "  to  " + regexp);
         return (s.matches(regexp));
     }
 
-    public String getAndCheckNext(String regexp){
+    public String getAndCheckNext(String regexp) {
         String s = getNext();
         if (!s.matches(regexp)) System.exit(0);
-        System.out.println("matched: "+ s +"  to  "+ regexp);
+        System.out.println("matched: " + s + "  to  " + regexp);
         return s;
     }
 
-    public boolean moreTokens(){
-        return currentToken<tokens.length;
+    public boolean moreTokens() {
+        return currentToken < tokens.length;
     }
 
-    public static Tokenizer getTokenizer(){
+    public static Tokenizer getTokenizer() {
         return theTokenizer;
     }
 
