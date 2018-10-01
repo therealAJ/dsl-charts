@@ -35,7 +35,7 @@ public class SnippetGenerator {
     }
 
     private void appendCanvasTag() {
-        String str ="<canvas id='" + chart.title + "' width='400' height='400'></canvas>\n";
+        String str ="<canvas id='" + chart.title + "' width='300' height='300'></canvas>\n";
         snippet.append(str);
     }
 
@@ -116,52 +116,4 @@ public class SnippetGenerator {
     private void appendPieOptions() {
         // stub
     }
-
-
-
-
-
-//    public void evaluate() {
-//        String snippet = "var ctx" + count + " = document.getElementById(\"chart" + count + "\");\n" +
-//                "var myChart" + count + " = new Chart(ctx" + count + ", {\n" +
-//                "type: 'bar',\n" +
-//                "data: {\n" +
-//                "labels: [";
-//        writer.println(snippet);
-//        // labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
-//        for (int i = 0; i < valueNodes.size(); i++) {
-//            valueNodes.get(i).evaluate(Constants.BAR_CHART_PROPERTIES.NAME);
-//            if (i != valueNodes.size() - 1) {
-//                writer.println(",");
-//            }
-//        }
-//    }
-
-    //    public void printGraphs() {
-//        writer = new PrintWriter("charts.html", "UTF-8");
-//        writer.println(Constants.START_HTML);
-//
-//        for (GraphNode graph: graphs) {
-//            printHtmlCanvas();
-//            printChartJsCode();
-//        }
-//        writer.println(Constants.END_HTML);
-//        writer.close();
-//    }
-
-//    public void printHtmlCanvas() {
-//        for (int i = 0; i < graphs.size(); i++) {
-//            writer.println("<canvas id=\"chart" + i + "\" " +
-//                    "width=\"400\" height=\"400\"></canvas>");
-//        }
-//    }
-//
-//    public void printChartJsCode() throws FileNotFoundException, UnsupportedEncodingException {
-//        writer.println("<script>");
-//        for (GraphNode g : graphs) {
-//            g.evaluate();
-//        }
-//        writer.println("</script>");
-//    }
-
 }

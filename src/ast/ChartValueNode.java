@@ -3,12 +3,6 @@ package ast;
 import util.Constants;
 import util.Tokenizer;
 
-import java.io.FileNotFoundException;
-import java.io.UnsupportedEncodingException;
-
-/**
- * Created by daylan on 9/29/2018.
- */
 public class ChartValueNode extends Node {
     String name;
     int count;
@@ -25,13 +19,5 @@ public class ChartValueNode extends Node {
 
     @Override
     public void evaluate() {
-    }
-
-
-    public void evaluate(Constants.BAR_CHART_PROPERTIES type) {
-        switch (type) {
-            case NAME:
-                writer.println("\""+ name + "\"");
-        }
     }
 }

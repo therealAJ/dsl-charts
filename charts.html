@@ -7,8 +7,52 @@
   </head>
   <body>
 
-<canvas id="chart0" width="400" height="400"></canvas>
+<canvas id='Tester' width='300' height='300'></canvas>
 <script>
+var ctx1 = document.getElementById('Tester').getContext('2d');
+var Tester = new Chart(ctx1, {
+    type: 'bar',
+    data: {
+        labels: ['THIS','ISA','TEST'],
+        datasets: [{
+            label: 'Items',
+            data: ['10','6','7'],
+            backgroundColor: [
+            ],
+            borderColor: [
+            ],
+            borderWidth: 1
+        }]
+    },
+    options: {
+        scales: {
+            yAxes: [{
+                ticks: {
+                    beginAtZero:true
+                }
+            }]
+        }
+    }
+});
+</script>
+<canvas id='PieTest' width='300' height='300'></canvas>
+<script>
+var ctx2 = document.getElementById('PieTest').getContext('2d');
+var PieTest = new Chart(ctx2, {
+    type: 'pie',
+    data: {
+        labels: ['ItemOne','ItemTwo','ItemThree'],
+        datasets: [{
+            label: 'Items',
+            data: ['5','6','7'],
+            backgroundColor: [
+            ],
+            borderColor: [
+            ],
+            borderWidth: 1
+        }]
+    },
+});
 </script>
 </body>
 </html>

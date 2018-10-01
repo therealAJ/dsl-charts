@@ -1,4 +1,3 @@
-import ast.GraphNode;
 import ast.ProgramNode;
 import util.Tokenizer;
 
@@ -18,7 +17,10 @@ public class Main {
         // iterate through and evaluate all of the graphs
         programNode.evaluate();
 
-        programNode.printGraphs();
+        //create HTML strings from graphs
+        List<String> htmlStrings = programNode.generateHtmlStrings();
 
+        //write HTML to output file;
+        programNode.writeHtmlToFile(htmlStrings);
     }
 }

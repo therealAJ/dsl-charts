@@ -5,11 +5,7 @@ import util.Tokenizer;
 
 public class GraphNode extends Node {
     public String title;
-    String type;
     ChartNode chartNode;
-
-    // default constructor
-    public GraphNode() {}
 
     public ChartNode getChartNode() {
         return this.chartNode;
