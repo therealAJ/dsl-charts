@@ -1,12 +1,9 @@
 package util;
 
 import ast.ChartNode;
-
-import java.io.FileNotFoundException;
-import java.io.PrintWriter;
+import ChartAttributes.ChartType;
 
 public class SnippetGenerator {
-    PrintWriter writer;
     StringBuilder snippet;
     ChartNode chart;
 
@@ -26,7 +23,12 @@ public class SnippetGenerator {
         appendChartDefinition();
         appendType();
         appendData();
-        appendOptions();
+        if (chart.type.equals(ChartType.BAR)) {
+            appendBarOptions();
+        }
+        else if (chart.type.equals(ChartType.PIE)) {
+            appendPieOptions();
+        }
         snippet.append("});\n");
         snippet.append("</script>");
         return snippet.toString();
@@ -48,7 +50,7 @@ public class SnippetGenerator {
     }
 
     private void appendType() {
-        snippet.append("   type: '" + chart.type + "',\n");
+        snippet.append(SnippetHelpers.tabs(1) + "type: '" + chart.type + "',\n");
     }
 
     private void appendData() {
@@ -65,8 +67,8 @@ public class SnippetGenerator {
     }
 
     private void appendDatasets() {
-        snippet.append(SnippetHelpers.tabs(2) + "datasets: [{\n");
-        snippet.append(SnippetHelpers.tabs(3) + "label: '" + chart.data.datasets.label + "',\n");
+        snippet.append(SnippetHelpers.tabs(2) + "datasets: [{\n")
+        .append(SnippetHelpers.tabs(3) + "label: '" + chart.data.datasets.label + "',\n");
         appendValues();
         appendBackgroundColour();
         appendBorder();
@@ -92,9 +94,8 @@ public class SnippetGenerator {
         snippet.append(SnippetHelpers.tabs(3) + "],\n");
     }
 
-
     // TODO: proper handling of more cases where certain options may or may not be specified.
-    private void appendOptions() {
+    private void appendBarOptions() {
         snippet.append(SnippetHelpers.tabs(1) + "options: {\n");
         appendSloppyHardCodedOptions();
         snippet.append(SnippetHelpers.tabs(1) + "}\n");
@@ -110,6 +111,10 @@ public class SnippetGenerator {
         snippet.append(SnippetHelpers.tabs(4) + "}\n");
         snippet.append(SnippetHelpers.tabs(3) + "}]\n");
         snippet.append(SnippetHelpers.tabs(2) + "}\n");
+    }
+
+    private void appendPieOptions() {
+        // stub
     }
 
 

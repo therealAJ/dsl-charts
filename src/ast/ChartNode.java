@@ -1,10 +1,7 @@
 package ast;
 
-import ChartAttributes.ChartType;
 import ChartAttributes.DataObject;
 import ChartAttributes.OptionsObject;
-import ast.Node;
-import javafx.scene.chart.Chart;
 import util.Tokenizer;
 
 import java.util.List;
@@ -24,14 +21,8 @@ public abstract class ChartNode extends Node {
 
     public ChartNode(){}
 
-    public ChartNode(String chartType) {
-        this.type = chartType;
-        data = new DataObject();
-        options = new OptionsObject();
-    }
-
-
     // TODO: determine our grammar for creating other types of charts. Can we use a generic parse for all graph types?
+
     @Override
     public void parse() {
         Tokenizer.getTokenizer().getAndCheckNext("ITEMS:");
@@ -59,16 +50,33 @@ public abstract class ChartNode extends Node {
         System.out.println("**** " + type + " chart end ****\n");
     }
 
-    public void addData() {}
+    // need to evaluate data object in other types such as line graph.
+    // for now, this abstraction works for bar and pie
+    public void addData() {
+        data.datasets.label = xLabel;
+        for (ChartValueNode node: chartItems) {
+            data.labels.add(node.name);
+            data.datasets.data.add(node.count);
+            if (colourSpecified()) {
+                data.datasets.bgColours.add(node.colour);
+                data.datasets.borderColours.add(node.border);
+            }
+        }
+    }
 
     public void addOptions () {}
 
     public void evaluate() {
-//        System.out.println("ChartNode evaluate called");
         data = new DataObject();
         addData();
         options = new OptionsObject();
         addOptions();
+    }
+
+    private Boolean colourSpecified() {
+        // TODO: provide our own colours when not defined by the user.
+        // TODO: include border colour in our specification?
+        return false;
     }
 
 
