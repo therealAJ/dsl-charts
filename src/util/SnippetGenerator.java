@@ -5,7 +5,6 @@ import ast.ChartNode;
 import java.io.FileNotFoundException;
 import java.io.PrintWriter;
 
-
 public class SnippetGenerator {
     PrintWriter writer;
     StringBuilder snippet;
@@ -13,16 +12,43 @@ public class SnippetGenerator {
 
     public SnippetGenerator(ChartNode chart) {
         this.chart = chart;
+        snippet = new StringBuilder();
     }
 
+    /*
+        This method is excessively modular in hopes that it will be easier to abstract to other types of charts when
+        the time comes.
+     */
     public String printSnippet() {
-        snippet = new StringBuilder();
-                snippet.append("var ctx" + chart.ID +
-                        " = document.getElementById('" + chart.title + "').getContext('2d');\n");
-        snippet.append("   type: '" + chart.type + "',\n");
-
+        appendCanvasTag();
+        snippet.append("<script>\n");
+        appendCTXDefinition();
+        appendChartDefinition();
+        appendType();
         appendData();
+        appendOptions();
+        snippet.append("});\n");
+        snippet.append("</script>");
         return snippet.toString();
+    }
+
+    private void appendCanvasTag() {
+        String str ="<canvas id='" + chart.title + "' width='400' height='400'></canvas>\n";
+        snippet.append(str);
+    }
+
+    private void appendCTXDefinition() {
+        snippet.append("var ctx" + chart.ID +
+                " = document.getElementById('" + chart.title + "').getContext('2d');\n");
+    }
+
+    private void appendChartDefinition() {
+        String str = "var " + chart.title + " = new Chart(ctx" + chart.ID + ", {\n";
+        snippet.append(str);
+    }
+
+    private void appendType() {
+        snippet.append("   type: '" + chart.type + "',\n");
     }
 
     private void appendData() {
@@ -54,6 +80,7 @@ public class SnippetGenerator {
         snippet.append(values);
     }
 
+    // TODO: handling for if colours are or are not provided
     private void appendBackgroundColour() {
         snippet.append(SnippetHelpers.tabs(3) + "backgroundColor: [\n");
         snippet.append(SnippetHelpers.tabs(3) + "],\n");
@@ -64,6 +91,28 @@ public class SnippetGenerator {
         snippet.append(SnippetHelpers.tabs(3) + "borderColor: [\n");
         snippet.append(SnippetHelpers.tabs(3) + "],\n");
     }
+
+
+    // TODO: proper handling of more cases where certain options may or may not be specified.
+    private void appendOptions() {
+        snippet.append(SnippetHelpers.tabs(1) + "options: {\n");
+        appendSloppyHardCodedOptions();
+        snippet.append(SnippetHelpers.tabs(1) + "}\n");
+    }
+
+    private void appendSloppyHardCodedOptions() {
+        snippet.append(SnippetHelpers.tabs(2) + "scales: {\n");
+        snippet.append(SnippetHelpers.tabs(3) + "yAxes: [{\n");
+        snippet.append(SnippetHelpers.tabs(4) + "ticks: {\n");
+        snippet.append(SnippetHelpers.tabs(5) + "beginAtZero:true\n");
+
+        // closing tags
+        snippet.append(SnippetHelpers.tabs(4) + "}\n");
+        snippet.append(SnippetHelpers.tabs(3) + "}]\n");
+        snippet.append(SnippetHelpers.tabs(2) + "}\n");
+    }
+
+
 
 
 

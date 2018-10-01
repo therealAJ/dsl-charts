@@ -19,6 +19,12 @@ public class SnippetHelpers {
             case 4:
                 retString ="                ";
                 break;
+            case 5:
+                retString ="                    ";
+                break;
+            default:
+                retString ="";
+                break;
         }
         return retString;
     }
