@@ -44,7 +44,7 @@ public class ProgramNode extends Node {
     }
 
     public void writeHtmlToFile(List<String> htmlStrings) throws FileNotFoundException, UnsupportedEncodingException {
-        writer = new PrintWriter("charts.html", "UTF-8");
+        writer = new PrintWriter(Constants.OUTPUT_FILE_PATH, "UTF-8");
         writer.println(Constants.START_HTML);
         for(String htmlStr : htmlStrings) {
             writer.println(htmlStr);

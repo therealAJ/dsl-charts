@@ -1,14 +1,16 @@
 import ast.ProgramNode;
+import util.Constants;
 import util.Tokenizer;
 
+import java.awt.*;
+import java.io.File;
 import java.util.Arrays;
 import java.util.List;
 
 public class Main {
 
     public static void main(String[] args) throws Exception {
-        List<String> literals = Arrays.asList("GRAPH:", "TYPE:","ITEMS:","ITEM:","LABELS:","X:","Y:",",","END");
-        Tokenizer.makeTokenizer("input.txt",literals);
+        Tokenizer.makeTokenizer(Constants.INPUT_FILE_PATH, Constants.LITERALS);
         ProgramNode programNode = new ProgramNode();
 
         // programNode tracks a list of all the graphs in input
@@ -22,5 +24,9 @@ public class Main {
 
         //write HTML to output file;
         programNode.writeHtmlToFile(htmlStrings);
+
+        // open the generated html page
+        File output = new File(Constants.OUTPUT_FILE_PATH);
+        Desktop.getDesktop().browse(output.toURI());
     }
 }
