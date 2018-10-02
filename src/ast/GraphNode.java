@@ -21,6 +21,8 @@ public class GraphNode extends Node {
             chartNode = new BarChartNode();
         } else if (chartType.equals(ChartType.PIE)) {
             chartNode = new PieChartNode();
+        } else if (chartType.equals(ChartType.LINE)){
+            chartNode = new LineChartNode();
         }
         chartNode.type = chartType;
         chartNode.title = title;
