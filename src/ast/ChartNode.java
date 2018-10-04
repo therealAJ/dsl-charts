@@ -2,6 +2,8 @@ package ast;
 
 import ChartAttributes.DataObject;
 import ChartAttributes.OptionsObject;
+import util.Colour;
+import util.ColourPicker;
 import util.Tokenizer;
 
 import java.util.List;
@@ -51,11 +53,14 @@ public abstract class ChartNode extends Node {
     // for now, this abstraction works for bar and pie
     public void addData() {
         data.datasets.label = xLabel;
+        int i =0;
         for (ChartValueNode node: chartItems) {
             data.labels.add(node.name);
             data.datasets.data.add(node.count);
-            data.datasets.bgColours.add(node.colour);
-            data.datasets.borderColours.add(node.border);
+            Colour c = evaluateColour(node, i);
+            data.datasets.bgColours.add(c.getBg());
+            data.datasets.borderColours.add(c.getBorder());
+            i++;
         }
     }
 
@@ -66,5 +71,13 @@ public abstract class ChartNode extends Node {
         addData();
         options = new OptionsObject();
         addOptions();
+    }
+
+    private Colour evaluateColour(ChartValueNode node, int i) {
+        if (node.colour == null) return ColourPicker.chooseAny(i);
+        String c = node.colour;
+        Colour attempt = ColourPicker.select(c);
+        if (attempt != null) return attempt;
+        else return new Colour(c);
     }
 }

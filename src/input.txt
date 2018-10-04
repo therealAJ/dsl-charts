@@ -18,3 +18,14 @@ ITEM:ItemThree,7,green,blue
 LABELS:
 X:Items
 Y:Values
+
+GRAPH:LineTest
+TYPE:Line
+ITEMS:
+ITEM:1,5,red,blue
+ITEM:2,6,blue,red
+ITEM:3,5,green,blue
+LABELS:
+X:Items
+Y:Values
+

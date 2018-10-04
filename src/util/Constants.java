@@ -23,7 +23,7 @@ public class Constants {
         BAR, PIE, LINE
     }
 
-    public static final String INPUT_FILE_PATH = "input.txt";
+    public static final String INPUT_FILE_PATH = "../input.txt";
 
     public static final String OUTPUT_FILE_PATH = "charts.html";
 
@@ -31,12 +31,15 @@ public class Constants {
 
     public static final Map<String, Colour> COLOURS;
 
-    static
-    {
+    public static final String COLOUR_NOT_SPECIFIED = "invalid";
+
+    static {
         Map<String, Colour> coloursMap = new HashMap<>();
         coloursMap.put("red", new Colour(255, 0, 0));
         coloursMap.put("green", new Colour(0, 255, 0));
         coloursMap.put("blue", new Colour(0, 0, 255));
         COLOURS = Collections.unmodifiableMap(coloursMap);
     }
+
+
 }

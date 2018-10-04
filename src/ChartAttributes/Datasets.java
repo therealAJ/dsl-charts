@@ -7,8 +7,8 @@ import java.util.ArrayList;
 public class Datasets {
     public String label;
     public ArrayList<Integer> data;
-    public ArrayList<Colour> bgColours;
-    public ArrayList<Colour> borderColours;
+    public ArrayList<String> bgColours;
+    public ArrayList<String> borderColours;
 
     public Datasets() {
         data = new ArrayList<>();

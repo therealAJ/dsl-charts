@@ -87,13 +87,13 @@ public class SnippetGenerator {
     private void appendBackgroundColour() {
         snippet.append(SnippetHelpers.tabs(3) + "backgroundColor: [\n");
         String colours = SnippetHelpers.appendArrayItems(chart.data.datasets.bgColours);
-        snippet.append(colours);
+        snippet.append(SnippetHelpers.tabs(4)+ colours);
     }
 
     private void appendBorder() {
         snippet.append(SnippetHelpers.tabs(3) + "borderColor: [\n");
         String colours = SnippetHelpers.appendArrayItems(chart.data.datasets.borderColours);
-        snippet.append(colours);
+        snippet.append(SnippetHelpers.tabs(4)+colours);
     }
 
     // TODO: proper handling of more cases where certain options may or may not be specified.
