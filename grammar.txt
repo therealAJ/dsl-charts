@@ -1,0 +1,13 @@
+Data: variableName
+Item: name, value, color
+Item: name, value, color
+Item: name, value, color
+
+Graph: name
+Type: type
+Data: variableName
+Labels:
+X: xaxis
+Y: yaxis
+
+Available Colours : {red, orange, yellow, blue, teal, purple}
