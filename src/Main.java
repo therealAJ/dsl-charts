@@ -5,9 +5,12 @@ import util.Tokenizer;
 import java.awt.*;
 import java.io.File;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class Main {
+    public static Map<String, Object> symbolTable = new HashMap<>();
 
     public static void main(String[] args) throws Exception {
         Tokenizer.makeTokenizer(Constants.INPUT_FILE_PATH, Constants.LITERALS);

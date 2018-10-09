@@ -66,6 +66,31 @@ var PieTest = new Chart(ctx2, {
     },
 });
 </script>
+<div style=' 
+    max-width: 600px;
+    max-height: 600px;
+    position:relative;
+    margin:100px auto;'>
+<canvas id='LineTest'></canvas>
+</div>
+<script>
+var ctx3 = document.getElementById('LineTest').getContext('2d');
+var LineTest = new Chart(ctx3, {
+    type: 'line',
+    data: {
+        labels: ['1','2','3'],
+        datasets: [{
+            label: 'Items',
+            data: ['5','6','5'],
+            backgroundColor: [
+'rgba(255, 0, 0, 1.0)','rgba(0, 0, 255, 1.0)','rgba(0, 255, 0, 1.0)'],
+            borderColor: [
+'rgba(0, 0, 255, 1.0)','rgba(255, 0, 0, 1.0)','rgba(0, 0, 255, 1.0)'],
+            borderWidth: 1
+        }]
+    },
+});
+</script>
 </body>
 </html>
 

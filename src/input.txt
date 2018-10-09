@@ -1,16 +1,20 @@
-GRAPH:Tester
-TYPE:Bar
+DEC:apple
 ITEMS:
 ITEM:THIS,10,red,blue
 ITEM:ISA,6,blue,red
 ITEM:TEST,7,green,blue
+
+GRAPH:Tester
+TYPE:Bar
+DATA:
+apple
 LABELS:
 X:Items
 Y:Values
 
-
 GRAPH:PieTest
 TYPE:Pie
+DATA:
 ITEMS:
 ITEM:ItemOne,5,red,blue
 ITEM:ItemTwo,6,blue,red
@@ -21,6 +25,7 @@ Y:Values
 
 GRAPH:LineTest
 TYPE:Line
+DATA:
 ITEMS:
 ITEM:1,5,red,blue
 ITEM:2,6,blue,red
@@ -28,4 +33,3 @@ ITEM:3,5,green,blue
 LABELS:
 X:Items
 Y:Values
-
