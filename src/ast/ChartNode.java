@@ -36,7 +36,7 @@ public abstract class ChartNode extends Node {
         }
         else
         {
-            chartItems = Main.symbolTable.get(Tokenizer.getTokenizer().getNext());
+            chartItems = (List<ChartValueNode>) Main.symbolTable.get(Tokenizer.getTokenizer().getNext());
         }
 
         Tokenizer.getTokenizer().getAndCheckNext("LABELS:");

@@ -12,13 +12,16 @@ LABELS:
 X:Items
 Y:Values
 
-GRAPH:PieTest
-TYPE:Pie
-DATA:
+DEC:apple1
 ITEMS:
 ITEM:ItemOne,5,red,blue
 ITEM:ItemTwo,6,blue,red
 ITEM:ItemThree,7,green,blue
+
+GRAPH:PieTest
+TYPE:Pie
+DATA:
+apple1
 LABELS:
 X:Items
 Y:Values
