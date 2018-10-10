@@ -5,7 +5,7 @@ import util.Tokenizer;
 import java.util.ArrayList;
 import java.util.List;
 
-public class DecNode extends Node {
+public class DatasetNode extends Node {
     @Override
     public void parse() {
         String variableName = Tokenizer.getTokenizer().getNext();

@@ -27,7 +27,7 @@ public class Constants {
 
     public static final String OUTPUT_FILE_PATH = "charts.html";
 
-    public static final List<String> LITERALS = Arrays.asList("GRAPH:", "TYPE:","ITEMS:","ITEM:","LABELS:","X:","Y:",",","END", "DEC:", "DATA:");
+    public static final List<String> LITERALS = Arrays.asList("GRAPH:", "TYPE:","ITEMS:","ITEM:","LABELS:","X:","Y:",",","END", "DATASET:", "DATA:");
 
     public static final String COLOUR_NOT_SPECIFIED = "invalid";
 

@@ -1,4 +1,4 @@
-DEC:apple
+DATASET: apple
 ITEMS:
 ITEM: THIS, 10, red
 ITEM:ISA ,6,blue
@@ -12,7 +12,7 @@ LABELS:
 X:Items
 Y:Values
 
-DEC:apple1
+DATASET:apple1
 ITEMS:
 ITEM:ItemOne,5,red
 ITEM:ItemTwo,6,blue

@@ -24,9 +24,9 @@ public class ProgramNode extends Node {
             }
             else
             {
-                Tokenizer.getTokenizer().getAndCheckNext("DEC:");
-                DecNode decNode = new DecNode();
-                decNode.parse();
+                Tokenizer.getTokenizer().getAndCheckNext("DATASET:");
+                DatasetNode datasetNode = new DatasetNode();
+                datasetNode.parse();
             }
         }
     }
