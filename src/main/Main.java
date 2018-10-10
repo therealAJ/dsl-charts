@@ -1,3 +1,4 @@
+package main;
 import ast.ProgramNode;
 import util.Constants;
 import util.Tokenizer;

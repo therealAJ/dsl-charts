@@ -1,7 +1,7 @@
 package ast;
 
+import main.Main;
 import util.Tokenizer;
-
 import java.util.ArrayList;
 import java.util.List;
 
