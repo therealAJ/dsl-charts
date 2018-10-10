@@ -4,6 +4,7 @@ import ChartAttributes.DataObject;
 import ChartAttributes.OptionsObject;
 import util.Colour;
 import util.ColourPicker;
+import main.Main;
 import util.Tokenizer;
 
 import java.util.List;
@@ -24,12 +25,20 @@ public abstract class ChartNode extends Node {
 
     @Override
     public void parse() {
-        Tokenizer.getTokenizer().getAndCheckNext("ITEMS:");
-        while (Tokenizer.getTokenizer().checkToken("ITEM:")) {
-            Tokenizer.getTokenizer().getNext();
-            ChartValueNode valueNode = new ChartValueNode();
-            valueNode.parse();
-            chartItems.add(valueNode);
+        Tokenizer.getTokenizer().getAndCheckNext("DATA:");
+        if (Tokenizer.getTokenizer().checkToken("ITEMS:"))
+        {
+            Tokenizer.getTokenizer().getAndCheckNext("ITEMS:");
+            while (Tokenizer.getTokenizer().checkToken("ITEM:")) {
+                Tokenizer.getTokenizer().getNext();
+                ChartValueNode valueNode = new ChartValueNode();
+                valueNode.parse();
+                chartItems.add(valueNode);
+            }
+        }
+        else
+        {
+            chartItems = (List<ChartValueNode>) Main.symbolTable.get(Tokenizer.getTokenizer().getNext());
         }
 
         Tokenizer.getTokenizer().getAndCheckNext("LABELS:");

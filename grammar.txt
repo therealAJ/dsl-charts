@@ -1,4 +1,4 @@
-Data: variableName
+Dec: variableName
 Item: name, value, color
 Item: name, value, color
 Item: name, value, color

@@ -15,10 +15,19 @@ public class ProgramNode extends Node {
     @Override
     public void parse() {
         while (Tokenizer.getTokenizer().moreTokens()) {
-            Tokenizer.getTokenizer().getAndCheckNext("GRAPH:");
-            GraphNode g = new GraphNode();
-            g.parse();
-            graphs.add(g);
+            if (Tokenizer.getTokenizer().checkToken("GRAPH:"))
+            {
+                Tokenizer.getTokenizer().getAndCheckNext("GRAPH:");
+                GraphNode g = new GraphNode();
+                g.parse();
+                graphs.add(g);
+            }
+            else
+            {
+                Tokenizer.getTokenizer().getAndCheckNext("DEC:");
+                DecNode decNode = new DecNode();
+                decNode.parse();
+            }
         }
     }
 
