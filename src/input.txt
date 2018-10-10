@@ -1,7 +1,7 @@
 DEC:apple
 ITEMS:
-ITEM:THIS,10,red
-ITEM:ISA,6,blue
+ITEM: THIS, 10, red
+ITEM:ISA ,6,blue
 ITEM:TEST,7,yellow
 
 GRAPH:Tester

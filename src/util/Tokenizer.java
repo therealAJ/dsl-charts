@@ -39,10 +39,12 @@ public class Tokenizer {
         for (String s : literals) {
             if (s.equals(",")) {
                 tokenizedProgram = tokenizedProgram.replace(s, "__");
-            } else {
+            }
+            else {
                 tokenizedProgram = tokenizedProgram.replace(s, "_" + s + "_");
             }
         }
+        tokenizedProgram = tokenizedProgram.replaceAll(" ", "");
         tokenizedProgram = tokenizedProgram.replaceAll("__", "_");
         String[] temparray = tokenizedProgram.split("_");
         tokens = new String[temparray.length - 1];
