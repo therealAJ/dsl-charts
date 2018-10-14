@@ -3,36 +3,33 @@ CPSC 410 Project for creating chart visualizations using a domain-specific-langu
 
 This project implements a new DSL Language that allows users to make new charts with their data.
 
-A sample chart is made with:
+EBNF in grammer.txt
 
-DATASET: apple
-ITEMS:
-ITEM: THIS, 10, red
-ITEM:ISA ,6,blue
-ITEM:TEST,7,yellow
+Example usage one:
 
-GRAPH:Tester
-TYPE:Bar
+GRAPH:LineTest
+TYPE:Line
 DATA:
-apple
+ITEMS:
+ITEM:1,5,red
+ITEM:2,6,blue
+ITEM:3,5,yellow
 LABELS:
 X:Items
 Y:Values
 
-The EBNF is as follows:
+Example usage with variables:
 
-PROGRAM ::= GRAPH*
-GRAPH   ::= "Graph:" TITLE TYPE ITEMS LABELS END
-TITLE   ::= "Title: " STRING
-TYPE    ::= "Type: " CHART-TYPE
-CHART-TYPE ::= "Bar" | "Pie"
-ITEMS   ::= "[" ITEM* "]"
-ITEM    ::= NAME SEP VALUE SEP COLOR? SEP BORDER?
-NAME    ::= [*]
-VALUE   ::= [0-9]
-COLOR   ::= "rgba(" [0-255] SEP [0-255] SEP [0-255] SEP [0-1] ")"
-BORDER   ::= "rgba(" [0-255] SEP [0-255] SEP [0-255] SEP [0-1] ")"
-LABELS  ::= LABEL LABEL
-LABEL   ::= "XName" | "YName" ":" STRING
-END     ::= "END"
-SEP     ::= ,
+DATASET:apple1
+ITEMS:
+ITEM:ItemOne,5,red
+ITEM:ItemTwo,6,blue
+ITEM:ItemThree,7,yellow
+
+GRAPH:PieTest
+TYPE:Pie
+DATA:
+apple1
+LABELS:
+X:Items
+Y:Values
